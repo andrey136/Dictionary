@@ -3,13 +3,16 @@ import React, {Component} from 'react';
 class BodyOfTable extends Component {
   constructor(props){
     super(props);
-    this.listOfWords = [...this.props.listOfWords];
+
+    this.state= {
+      list: [...this.props.listOfWords],
+    };
   }
 
   formOfDefinition(el) {
     return (
       <td>
-        <button onClick={() => {el.showDefinition = !el.showDefinition; this.props.changeListOfWords(this.listOfWords);}}
+        <button onClick={() => this.changeListOfWords(el)}
                 className="btn btn-link shown">{el.title}</button>
         {el.value}
       </td>
@@ -19,17 +22,26 @@ class BodyOfTable extends Component {
   formOfButton(el){
     return(
       <td>
-        <button onClick={() => {el.showDefinition = !el.showDefinition; this.props.changeListOfWords(this.listOfWords);}}
+        <button onClick={() => this.changeListOfWords(el)}
                 className="btn btn-link">{el.title}</button>
       </td>
     );
+  }
+
+  changeListOfWords(el) {
+    const newList = this.state.list;
+    const index = newList.findIndex(item => item.id === el.id);
+    newList[index].showDefinition = !newList[index].showDefinition;
+    this.setState({
+      list: newList,
+    });
   }
 
   render() {
     return (
       <tbody>
       {
-        this.listOfWords.map(el => {
+        this.state.list.map(el => {
           return (
             <tr key={el.id}>
                 {el.showDefinition ? this.formOfDefinition(el) : this.formOfButton(el)}

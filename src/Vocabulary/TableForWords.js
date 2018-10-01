@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Vocabulary from "./Vocabulary";
+import BodyOfTable from "./BodyOfTable";
 
 class TableForWords extends Component {
   render() {
@@ -11,7 +11,7 @@ class TableForWords extends Component {
             <th scope="col">My English Words</th>
           </tr>
           </thead>
-            <Vocabulary listOfWords={this.props.listOfWords} newWord={this.props.newWord} changeProps={this.props.changeProps()}/>
+            <BodyOfTable listOfWords={this.props.listOfWords}/>
         </table>
       </div>
     );

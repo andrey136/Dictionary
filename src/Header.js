@@ -7,7 +7,7 @@ class Header extends Component {
       <div className="container">
         <h1>English Dictionary</h1>
         <p className="headerIndention">{}</p>
-        <Input addAWord={(arg) => this.props.addAWord(arg)}/>
+        <Input changeListOfWords={(arg) => this.props.addAWord(arg)} listOfWords={this.props.listOfWords} />
       </div>
     );
   }

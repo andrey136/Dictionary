@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddWordDefinition from './AddWordDefinition';
 
 class Input extends Component {
   constructor(props){
@@ -24,7 +25,7 @@ class Input extends Component {
                  value={this.state.inputText}
                  onChange={(e) => this.changeInput(e.target.value)} />
             <div className="input-group-append">
-              <button className="btn btn-primary" id="button-addon2" onClick={() => this.props.addAWord(this.state.inputText)}>Add a word</button>
+              <AddWordDefinition inputText={this.state.inputText} changeList={(arg) => this.props.changeListOfWords(arg)} listOfWords={this.props.listOfWords} />
             </div>
         </div>
       </div>
