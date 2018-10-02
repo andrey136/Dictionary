@@ -10,7 +10,7 @@ class AddWordDefinition extends Component {
         showDefinition: false,
         id: uniqid(),
       });
-      return this.props.changeList;
+      return this.props.changeList(newList);
     }
 
 

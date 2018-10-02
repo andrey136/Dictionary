@@ -38,6 +38,11 @@ class BodyOfTable extends Component {
   }
 
   render() {
+    if (this.state.list !== this.props.listOfWords){
+      this.setState({
+        list: this.props.listOfWords,
+      })
+    }
     return (
       <tbody>
       {

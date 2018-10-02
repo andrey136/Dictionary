@@ -30,7 +30,8 @@ class App extends Component {
   addAWord(newList){
     this.setState({
       list: newList,
-    })
+    });
+    console.log(this.state.list);
   }
 
   render() {
