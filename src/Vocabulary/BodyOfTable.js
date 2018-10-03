@@ -1,19 +1,10 @@
 import React, {Component} from 'react';
 
 class BodyOfTable extends Component {
-  constructor(props){
-    super(props);
-
-    this.state= {
-      list: [...this.props.listOfWords],
-    };
-  }
 
   formOfDefinition(el) {
     return (
       <td>
-        <button onClick={() => this.changeListOfWords(el)}
-                className="btn btn-link shown">{el.title}</button>
         {el.value}
       </td>
       );
@@ -29,27 +20,26 @@ class BodyOfTable extends Component {
   }
 
   changeListOfWords(el) {
-    const newList = this.state.list;
+    const newList = this.props.listOfWords;
     const index = newList.findIndex(item => item.id === el.id);
     newList[index].showDefinition = !newList[index].showDefinition;
-    this.setState({
-      list: newList,
-    });
+    return this.props.changeListOfWords(newList);
+  }
+
+  deleteItem(id){
+    console.log(id);
   }
 
   render() {
-    if (this.state.list !== this.props.listOfWords){
-      this.setState({
-        list: this.props.listOfWords,
-      })
-    }
     return (
       <tbody>
       {
-        this.state.list.map(el => {
+        this.props.listOfWords.map(el => {
           return (
             <tr key={el.id}>
-                {el.showDefinition ? this.formOfDefinition(el) : this.formOfButton(el)}
+              {this.formOfButton(el)}
+              {el.showDefinition ? this.formOfDefinition(el) : <td>{}</td>}
+              <td className="options" onClick={this.deleteItem(el.id)}><button className="btn btn-success">Delete</button></td>
             </tr>
           )
         })}

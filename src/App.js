@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Header';
 import TableForWords from "./Vocabulary/TableForWords";
 import uniqid from "uniqid";
+import Input from "./Input";
 
 class App extends Component {
   constructor(props){
@@ -13,7 +14,7 @@ class App extends Component {
           title: 'Dip',
           value: 'Dip is to plunge (something, as a cloth or sponge) temporarily into ' +
           'a liquid to moisten it, dye it, or cause it to take up some of lhe liquid',
-          showDefinition: false,
+          showDefinition: true,
           id: uniqid(),
         },
         {
@@ -27,7 +28,7 @@ class App extends Component {
     }
   }
 
-  addAWord(newList){
+  changeListOfWords(newList){
     this.setState({
       list: newList,
     });
@@ -36,9 +37,10 @@ class App extends Component {
 
   render() {
     return (
-      <div >
+      <div className="container" >
         <Header addAWord={(arg) => this.addAWord(arg)} listOfWords={this.state.list}/>
-        <TableForWords listOfWords={this.state.list} chageProps={(arg) => this.addAWord(arg)}/>
+        <Input changeListOfWords={(arg) => this.changeListOfWords(arg)} listOfWords={this.state.list} />
+        <TableForWords listOfWords={this.state.list} changeListOfWords={(arg) => this.changeListOfWords(arg)}/>
       </div>
     );
   }

@@ -9,3 +9,9 @@ h1 {
 .shown{
   color: #ccc;
 }
+.options{
+  text-align: right;
+}
+.definition{
+  text-align: right;
+}

@@ -16,8 +16,7 @@ class AddWordDefinition extends Component {
 
   render() {
     return (
-      <button className="btn btn-primary" id="button-addon2" onClick={() => this.addAWord(this.props.inputText)}>Add a
-        word</button>
+      <button className="btn btn-primary" id="button-addon2" onClick={() => this.addAWord(this.props.inputText)}>Add a word</button>
     );
   }
 }
