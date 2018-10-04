@@ -8,8 +8,8 @@ class TableForWords extends Component {
         <table className="table">
           <thead>
           <tr>
-            <th scope="col">My English Words</th>
-            <th>Definition</th>
+            <th scope="col" className="th1">My English Words</th>
+            <th className="th2">Definition</th>
             <th scope="col" className="options">Options</th>
           </tr>
           </thead>

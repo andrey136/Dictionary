@@ -12,6 +12,11 @@ h1 {
 .options{
   text-align: right;
 }
-.definition{
-  text-align: right;
+.th2{
+  text-align: center;
+  width: 846px;
+  height: 20px;
+}
+.th1{
+  width: 138px;
 }
