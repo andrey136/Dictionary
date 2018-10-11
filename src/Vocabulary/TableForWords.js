@@ -10,7 +10,7 @@ class TableForWords extends Component {
           <tr>
             <th scope="col" className="th1">My English Words</th>
             <th className="th2">Definition</th>
-            <th scope="col" className="options">Options</th>
+            <th scope="col" className="th3">Options</th>
           </tr>
           </thead>
             <BodyOfTable changeListOfWords={(arg) => this.props.changeListOfWords(arg)} listOfWords={this.props.listOfWords}/>

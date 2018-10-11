@@ -1,6 +1,14 @@
 import React, {Component} from 'react';
 
 class BodyOfTable extends Component {
+  constructor(props){
+    super(props);
+
+    this.state = {
+      list: [],
+      toLoadListOfWordsFromServer: true,
+    }
+  }
 
   formOfDefinition(el) {
     return (
@@ -27,10 +35,13 @@ class BodyOfTable extends Component {
   }
 
   deleteItem(id){
-    console.log(id);
+   const newList = this.props.listOfWords.filter(item => item.id !== id);
+   return this.props.changeListOfWords(newList);
   }
 
+
   render() {
+
     return (
       <tbody>
       {
@@ -39,14 +50,13 @@ class BodyOfTable extends Component {
             <tr key={el.id}>
               {this.formOfButton(el)}
               {el.showDefinition ? this.formOfDefinition(el) : <td>{}</td>}
-              <td className="options" onClick={this.deleteItem(el.id)}><button className="btn btn-success">Delete</button></td>
+              <td className="options" onClick={() => this.deleteItem(el.id)}><button className="btn btn-success">Delete</button></td>
             </tr>
           )
         })}
       </tbody>
     )
   }
-
 }
 
 export default BodyOfTable;
