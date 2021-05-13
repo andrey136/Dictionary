@@ -20,5 +20,16 @@
   },
   "devDependencies": {
     "gh-pages": "^2.0.0"
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrey136/Dictionary.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrey136/Dictionary/issues"
   }
 }
